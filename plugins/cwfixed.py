@@ -197,10 +197,11 @@ async def account_login(bot: Client, m: Message):
                     if bcvid.startswith("62"):
                         try:
                             
-                            html6 = s.get(f"{bc_url}/{bcvid}", headers=bc_hdr).content
-                            video = json.loads(html6)
-                            video_source = video["sources"][5]
-                            video_url = video_source["src"]                                                       
+                           # html6 = s.get(f"{bc_url}/{bcvid}", headers=bc_hdr).content
+                           # video = json.loads(html6)
+                           # video_source = video["sources"][5]
+                           # video_url = video_source["src"]
+                            video_url = (bc_url+"/"+bcvid+"/master.m3u8?")                                                      
                             html5 = s.get("https://elearn.crwilladmin.com/api/v1/livestreamToken?type=brightcove&vid="+vidid+"&token="+token, headers=headers).content
                             surl = json.loads(html5)
                             stoken = surl["data"]["token"]                          
