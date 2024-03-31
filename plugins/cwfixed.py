@@ -1,3 +1,4 @@
+
 #  MIT License
 #
 #  Copyright (c) 2019-present Dan <https://github.com/delivrance>
@@ -210,10 +211,13 @@ async def account_login(bot: Client, m: Message):
                     #await m.reply_text(cc)
                     elif bcvid.startswith("63"):
                         try:
-                            html7 = s.get(f"{bc_url}/{bcvid}", headers=bc_hdr).content
-                            video1 = json.loads(html7)
-                            video_source1 = video1["sources"][5]
-                            video_url1 = video_source1["src"]
+                          #  html7 = s.get(f"{bc_url}/{bcvid}", headers=bc_hdr).content
+                          #  video1 = json.loads(html7)
+                          #  video_source1 = video1["sources"][5]
+                          #  video_url1 = video_source1["src"]
+                            video_url1 = (bc_url+"/"+bcvid+"/master.m3u8?")
+
+
                             html8 = s.get("https://elearn.crwilladmin.com/api/v1/livestreamToken?type=brightcove&vid="+vidid+"&token="+token, headers=headers).content
                             surl1 = json.loads(html8)
                             stoken1 = surl1["data"]["token"]                          
